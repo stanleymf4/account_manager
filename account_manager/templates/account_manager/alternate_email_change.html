@@ -1,0 +1,47 @@
+{% extends 'base_forms.html' %}
+
+{% block head_content %}
+  <title>Cambiar correo alterno</title>
+{% endblock %}
+
+{% block container %}
+
+{% if error %}  
+  <p class="alert alert-danger">{{error}}</p>
+{% elif success %}
+  <p class="alert alert-success">{{success}}</p>
+{% endif %}
+
+<h3>Cambiar correo alterno</h3>
+
+<form method="POST" action='{% url "alternate_email_change" %}''>
+    {% csrf_token %}
+    
+    <div class="form-group">
+      <label for="email" class='lbl_chpass'>Correo institucional</label>
+      <input class="form-control" type="email" placeholder="ejemplo@organizacion.com" name="email" />
+    </div>
+    
+    <label for="password" class='lbl_chpass'>Contraseña actual</label>
+    <div class="form-group">
+      <input class="form-control" type="password" name="password" />
+    </div>
+    
+    <label for="new_email" class='lbl_chpass'>Nuevo correo alterno</label>
+    <div class="form-group">
+      <input class="form-control" type="email" name="new_email" />
+    </div>
+    
+    <label for="conf_new_email" class='lbl_chpass'>Nuevo correo alterno</label>
+    <div class="form-group">
+      <input class="form-control" type="email" name="conf_new_email" />
+    </div>
+    
+    <div class="d-grid gap-2 mt-3">
+      <a class="btn btn-secondary btn-sm" role="button" href='{% url "index" %}'>Salir</a>
+      <button type="submit" class="btn btn-primary btn-sm">Cambiar</button>
+    </div>
+
+  </form>  
+
+{% endblock %}

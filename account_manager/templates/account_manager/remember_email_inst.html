@@ -1,0 +1,33 @@
+{% extends 'base_forms.html' %}
+
+{% block head_content %}
+  <title>Recordar correo institucional</title>
+{% endblock %}
+
+{% block container %}
+
+{% if error %}  
+  <p class="alert alert-danger">{{error}}</p>
+{% elif success %}
+  <p class="alert alert-success">{{success}}</p>
+{% endif %}
+
+<h3>Recordar correo institucional</h3>
+
+<form method="POST" action='{% url "remember_email_inst" %}''>
+  {% csrf_token %}
+  
+  <div class="form-group">
+    <label for="email_inst" class='lbl_chpass'>Número de documento</label>
+    <input class="form-control" type="text"  name="employeeNumber" />
+  </div>
+  
+    
+  <div class="d-grid gap-2 mt-3">
+    <a class="btn btn-secondary btn-sm" role="button" href='{% url "index" %}'>Salir</a>
+    <button type="submit" class="btn btn-primary btn-sm">Recordar</button>
+  </div>
+
+</form> 
+
+{% endblock %}

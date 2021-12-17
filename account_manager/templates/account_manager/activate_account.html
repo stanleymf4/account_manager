@@ -1,0 +1,44 @@
+{% extends 'base_forms.html' %}
+
+{% block head_content %}
+  <title>Activación de cuenta</title>
+{% endblock %}
+
+{% block container %}
+
+{% if error %}  
+  <p class="alert alert-danger">{{error}}</p>
+{% elif success %}
+  <p class="alert alert-success">{{success}}</p>
+{% endif %}
+
+<h3>Activación de Cuenta</h3>
+
+<form method="POST" action='{% url "activate_account" %}''>
+  {% csrf_token %}
+  
+  <div class="form-group">
+    <label for="email_inst" class='lbl_chpass'>Correo institucional</label>
+    <input class="form-control" type="email" placeholder="ejemplo@organizacion.com" name="email_inst" />
+  </div>
+  
+  <div class="form-group">
+    <label for="emailAlterno" class='lbl_chpass'>Correo alterno</label>
+    <input class="form-control" type="email" placeholder="ejemplo@organizacion.com" name="emailAlterno" />
+  </div>
+
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+    <label class="form-check-label" for="flexCheckDefault">
+      Acepto el reglamento
+    </label>
+  </div>
+    
+  <div class="d-grid gap-2 mt-3">
+    <a class="btn btn-secondary btn-sm" role="button" href='{% url "index" %}'>Salir</a>
+    <button type="submit" class="btn btn-primary btn-sm">Activar</button>
+  </div>
+
+</form> 
+
+{% endblock %}

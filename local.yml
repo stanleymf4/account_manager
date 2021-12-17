@@ -1,0 +1,21 @@
+version: '3.7'
+
+services:
+  
+  account_manager:
+    build:
+      context: .
+      dockerfile: ./compose/local/django/Dockerfile
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    # depends_on:
+    #   - openldap
+    #command: /start
+    command: python manage.py runserver 0.0.0.0:8000
+
+networks: 
+  default: 
+    external: 
+      name: openldap2_organization

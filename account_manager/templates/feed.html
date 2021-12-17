@@ -1,0 +1,76 @@
+
+{% extends 'base.html' %}
+{% block head_content %}
+  <title>Gestión de cuentas de usuario</title>
+{% endblock %}
+
+{% block container %}
+<div class="row m-5">
+  <div class="col-sm-4 d-flex align-items-stretch">
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">Cambio de contraseña</h5>
+        <p class="card-text text-center">Cambia tu contraseña periódicamente antes de que se venza, si se venció ve a la opción Recuperar Contraseña.</p>
+        <a href="{% url "change_pass" %}" class="btn btn-primary">Cambia</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 d-flex align-items-stretch">
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">Recuperar contraseña</h5>
+        <p class="card-text text-center">Olvidaste tu contraseña, se venció o tu cuenta se ha bloqueado. Recupérala aquí.</p>
+        <br/>
+        <a href="{% url "recover_pass" %}" class="btn btn-primary">Recuperar</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 d-flex align-items-stretch">
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">Activación de cuenta</h5>
+        <p class="card-text text-center">¿Eres nuevo/a?
+          <br/>Activa tu cuenta y correo</p>
+          <br/>
+        <a href="{% url "activate_account" %}" class="btn btn-primary">Activar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row m-5">
+  <div class="col-sm-4 d-flex align-items-stretch">
+    <div class="card h-150 w-100">
+      <div class="card-body">
+        <h5 class="card-title">Recordar correo de la organización</h5>
+        <p class="card-text">¿Olvidaste tu correo organizacional?</p>
+        <br/>
+        <br/>
+        <a href="{% url "remember_email_inst" %}" class="btn btn-primary">Recordar</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 d-flex align-items-stretch">
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">Recordar correo alterno</h5>
+        <p class="card-text">¿Olvidaste tu correo alterno?</p>
+        <br/>
+        <br/>
+        <a href="#" class="btn btn-primary">Recordar</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-sm-4 d-flex align-items-stretch">
+    <div class="card w-100">
+      <div class="card-body">
+        <h5 class="card-title">Cambio de correo alterno</h5>
+        <p class="card-text">¿Necesitas cambiar tu correo alterno?</p>
+        <br/>
+        <br/>
+        <a href="{% url "alternate_email_change" %}" class="btn btn-primary">Cambiar</a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
